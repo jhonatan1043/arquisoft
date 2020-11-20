@@ -7,6 +7,7 @@ package generals;
 
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
 /**
@@ -16,13 +17,14 @@ import javax.swing.JTextField;
 public class ValidControlsSystem {
 
     public static void disableControls(javax.swing.JLayeredPane form) {
-
         for (int i = 0; i < form.getComponentCount(); i++) {
             if (form.getComponent(i) instanceof JTextField) {
                 ((JTextField) form.getComponent(i)).setEnabled(false);
             } else if (form.getComponent(i) instanceof JComboBox) {
                 ((JComboBox) form.getComponent(i)).setEnabled(false);
-            } else if (form.getComponent(i) instanceof JPanel) {
+            } else if(form.getComponent(i) instanceof JSpinner){
+                ((JSpinner) form.getComponent(i)).setEnabled(false);
+            }else if (form.getComponent(i) instanceof JPanel) {
                 disableControls(((JPanel) form.getComponent(i)));
             }
         }
@@ -34,29 +36,34 @@ public class ValidControlsSystem {
                 ((JTextField) form.getComponent(i)).setEnabled(false);
             } else if (form.getComponent(i) instanceof JComboBox) {
                 ((JComboBox) form.getComponent(i)).setEnabled(false);
+            }else if(form.getComponent(i) instanceof JSpinner){
+                ((JSpinner) form.getComponent(i)).setEnabled(false);
             }
         }
     }
 
-    public static void enableControls(javax.swing.JLayeredPane form) {
-
+    public static void enabledControls(javax.swing.JLayeredPane form) {
         for (int i = 0; i < form.getComponentCount(); i++) {
             if (form.getComponent(i) instanceof JTextField) {
                 ((JTextField) form.getComponent(i)).setEnabled(true);
             } else if (form.getComponent(i) instanceof JComboBox) {
                 ((JComboBox) form.getComponent(i)).setEnabled(true);
+            }else if(form.getComponent(i) instanceof JSpinner){
+                ((JSpinner) form.getComponent(i)).setEnabled(true);
             } else if (form.getComponent(i) instanceof JPanel) {
-                disableControls(((JPanel) form.getComponent(i)));
+                enabledControls(((JPanel) form.getComponent(i)));
             }
         }
     }
 
-    public static void enableControls(javax.swing.JPanel form) {
+    public static void enabledControls(javax.swing.JPanel form) {
         for (int i = 0; i < form.getComponentCount(); i++) {
             if (form.getComponent(i) instanceof JTextField) {
                 ((JTextField) form.getComponent(i)).setEnabled(true);
             } else if (form.getComponent(i) instanceof JComboBox) {
                 ((JComboBox) form.getComponent(i)).setEnabled(true);
+            }else if(form.getComponent(i) instanceof JSpinner){
+                ((JSpinner) form.getComponent(i)).setEnabled(true);
             }
         }
     }
