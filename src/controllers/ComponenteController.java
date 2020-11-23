@@ -14,9 +14,13 @@ import models.Componente;
  * @author Programador 1
  */
 public class ComponenteController implements ActionListener {
-    VComponente vcomponente =  new VComponente();
+    VComponente vcomponente;
     EComponente ecomponente =  new EComponente();
     Componente componente = new Componente();
+
+    public ComponenteController() throws ClassNotFoundException {
+        this.vcomponente = new VComponente();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

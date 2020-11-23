@@ -7,6 +7,8 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import views.VComponente;
 import views.VPrincipal;
 
@@ -27,7 +29,12 @@ public class PrincipalController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == this.viewPrincipal.itemComponente) {
-            VComponente viewComponente = new VComponente();
+            VComponente viewComponente = null;
+            try {
+                viewComponente = new VComponente();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             this.viewPrincipal.Desktop.add(viewComponente);
             viewComponente.setVisible(true);
         }

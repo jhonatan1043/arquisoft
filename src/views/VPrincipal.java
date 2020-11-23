@@ -8,6 +8,8 @@ package views;
 import generals.ValidForm;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -144,11 +146,19 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIniciarActionPerformed
-
+        VPerfilComponente viewPerfil = new VPerfilComponente();
+        this.Desktop.add(viewPerfil);
+        ValidForm.centeForm(viewPerfil, Desktop);
+        viewPerfil.show();
     }//GEN-LAST:event_itemIniciarActionPerformed
 
     private void itemComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemComponenteActionPerformed
-        VComponente viewComponente = new VComponente();
+        VComponente viewComponente = null;
+        try {
+            viewComponente = new VComponente();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(VPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.Desktop.add(viewComponente);
         ValidForm.centeForm(viewComponente, Desktop);
         viewComponente.show();

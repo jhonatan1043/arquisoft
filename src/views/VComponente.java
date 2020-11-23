@@ -19,14 +19,14 @@ public class VComponente extends javax.swing.JInternalFrame {
     /**
      * Creates new form VComponente2
      */
-    public VComponente() {
+    public VComponente() throws ClassNotFoundException {
         initComponents();
         this.start();
     }
 
-    public void start() {
+    public void start() throws ClassNotFoundException {
 
-        ValidControlsSystem.disableControls(this.jLayeredPane1);
+        ValidControlsSystem.disableControls(this);
         ValidButtonSystem.disableButton(pnlButton);
 
         this.btnNew.setEnabled(true);
@@ -36,13 +36,13 @@ public class VComponente extends javax.swing.JInternalFrame {
     }
     
 
-    public void comboAcabado() {
+    public void comboAcabado() throws ClassNotFoundException {
         Combos comboAcabado = new Combos();
         comboAcabado.setSqlConsult(Contans.QUERY_ACABADO);
         comboAcabado.setCombo(this.cbAcabado);
     }
 
-    public void comboUnidadMedida() {
+    public void comboUnidadMedida() throws ClassNotFoundException {
         Combos comboUnidadMedida = new Combos();
         comboUnidadMedida.setSqlConsult(Contans.QUERY_UNIDAD_MEDIDA);
         comboUnidadMedida.setCombo(this.cbUnidad);
@@ -255,14 +255,14 @@ public class VComponente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        ValidControlsSystem.enabledControls(this.jLayeredPane1);
+        ValidControlsSystem.enabledControls(this);
         ValidButtonSystem.disableButton(pnlButton);
         this.btnSave.setEnabled(true);
         this.btnCancel.setEnabled(true);
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        ValidControlsSystem.disableControls(this.jLayeredPane1);
+        ValidControlsSystem.disableControls(this);
         ValidButtonSystem.disableButton(pnlButton);
         this.btnNew.setEnabled(true);
     }//GEN-LAST:event_btnCancelActionPerformed
@@ -289,7 +289,4 @@ public class VComponente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDescripcion;
     // End of variables declaration//GEN-END:variables
 
-    private void setLocationRelativeTo(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

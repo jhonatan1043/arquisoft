@@ -18,18 +18,17 @@ import java.util.logging.Logger;
  */
 public class Querys {
 
-    Conexion cnx = new Conexion();
-
     public Querys() {
     }
 
-    public ArrayList<String> queryComboReturn(String sqlConsult) {
+    public ArrayList<String> queryComboReturn(String sqlConsult) throws ClassNotFoundException {
         ResultSet result = null;
         Statement statement = null;
         ArrayList<String> list = new ArrayList<>();
 
         try {
-            statement = (Statement) cnx.getConnection().createStatement();
+            statement = (Statement) Conexion.conectar().createStatement();
+           
             result = statement.executeQuery(sqlConsult);
             list.add(Contans.SELECTING);
             
@@ -40,7 +39,7 @@ public class Querys {
             }
             statement.close();
             result.close();
-            cnx.connectionClosed();
+            Conexion.conectar().close();
         } catch (SQLException ex) {
             Logger.getLogger(Querys.class.getName()).log(Level.SEVERE, null, ex);
         }
