@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author Programador 1
  */
 public class Querys {
-
+    Conexion cnx = new Conexion();
     public Querys() {
     }
 
@@ -27,8 +27,8 @@ public class Querys {
         ArrayList<String> list = new ArrayList<>();
 
         try {
-            statement = (Statement) Conexion.conectar().createStatement();
-           
+            
+            statement = (Statement) cnx.getConnection().createStatement(); 
             result = statement.executeQuery(sqlConsult);
             list.add(Contans.SELECTING);
             
@@ -39,7 +39,6 @@ public class Querys {
             }
             statement.close();
             result.close();
-            Conexion.conectar().close();
         } catch (SQLException ex) {
             Logger.getLogger(Querys.class.getName()).log(Level.SEVERE, null, ex);
         }

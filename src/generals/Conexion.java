@@ -6,32 +6,41 @@
 package generals;
 
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Programador 1
  */
 public class Conexion {
-
-      public static com.mysql.jdbc.Connection conectar() throws ClassNotFoundException {
-        com.mysql.jdbc.Connection con = null;
-        
-        String usuario = "root";
-        String password = "p0s31d0n";
-        
+    private String user = "root";
+    private String pass = "p0s31d0n";
+    private String db = "arquitectdb";
+    private String url = "jdbc:mysql://localhost:3306/" +
+                           db + "?useUnicode=true&use" +
+                           "JDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&" +
+                            "serveTimezone=UTC&useSSL=false";
+    Connection cnx = null;
+    
+    public Conexion(){
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = (com.mysql.jdbc.Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/arquitectdb",usuario,password);            
-            if (con != null) {
-                System.out.println("Conectad'''o");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            try {
+                cnx = DriverManager.getConnection(url,user,pass);
+                if(cnx != null){
+                    System.out.println("Conexion Exitosa");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (SQLException e) {
-            System.err.println("No se pudo conectar a la base de datos");
-            e.printStackTrace();
-        }    
-        return con;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
+        }  
     }
 
-
+    public Connection getConnection(){
+        return cnx;
+    }
 
 }
