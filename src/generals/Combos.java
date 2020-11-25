@@ -18,6 +18,7 @@ public class Combos {
     public void setCombo(javax.swing.JComboBox combo) throws ClassNotFoundException {
         ArrayList<String> list = query.queryComboReturn(sqlConsult);
         combo.addItem(list.get(0));
+        System.out.print(list);
         for (int i = 1; i < list.size(); i++) {
             combo.addItem(list.get(i));
         }    

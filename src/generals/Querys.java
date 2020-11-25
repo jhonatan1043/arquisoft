@@ -5,45 +5,51 @@
  */
 package generals;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
  * @author Programador 1
  */
 public class Querys {
+
     Conexion cnx = new Conexion();
+
     public Querys() {
     }
 
     public ArrayList<String> queryComboReturn(String sqlConsult) throws ClassNotFoundException {
-        ResultSet result = null;
-        Statement statement = null;
         ArrayList<String> list = new ArrayList<>();
+        try (PreparedStatement preparedStatement = cnx.getConnection().prepareStatement(sqlConsult)) {
+            ResultSet result = preparedStatement.executeQuery();
 
-        try {
-            
-            statement = (Statement) cnx.getConnection().createStatement(); 
-            result = statement.executeQuery(sqlConsult);
             list.add(Contans.SELECTING);
-            
-            if (result.getRow() > 0) {
-                while (result.next()) {
-                    list.add(result.getInt(0) + "|" + result.getString(1));
-                }
-            }
-            statement.close();
-            result.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Querys.class.getName()).log(Level.SEVERE, null, ex);
-        }
 
+            while (result.next()) {
+                list.add(result.getInt(0) + "|" + result.getString(1));
+            }
+
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución:"
+                    + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
         return list;
+
+    }
+
+    public ResultSet queryListComponente(String sqlConsult) {
+        ResultSet result = null;
+        try (PreparedStatement preparedStatement = cnx.getConnection().prepareStatement(sqlConsult)) {
+            result = preparedStatement.executeQuery();
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución:"
+                    + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        return result;
     }
 
 }

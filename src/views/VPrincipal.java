@@ -5,6 +5,7 @@
  */
 package views;
 
+import controllers.PerfilComponenteController;
 import generals.ValidForm;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -147,6 +148,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void itemIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIniciarActionPerformed
         VPerfilComponente viewPerfil = new VPerfilComponente();
+        PerfilComponenteController perfilComponenteCont =  new PerfilComponenteController(viewPerfil);
         this.Desktop.add(viewPerfil);
         ValidForm.centeForm(viewPerfil, Desktop);
         viewPerfil.show();
