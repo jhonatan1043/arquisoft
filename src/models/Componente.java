@@ -5,56 +5,26 @@
  */
 package models;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Programador 1
  */
 public class Componente {
-
-    private int idComponente;
-    private int idAcabado;
-    private int idUnidad;
+    private int idPerfil;
     private String codigo;
     private String descripcion;
-    private String rutaImagen;
+    private DefaultTableModel modelo;
+    
+    public Componente(){}
 
-    public Componente() {
+    public int getIdPerfil() {
+        return idPerfil;
     }
 
-    public Componente(int idComponente,
-            int idAcabado,
-            int idUnidad,
-            String codigo, String descripcion, String rutaImagen) {
-        this.idComponente = idComponente;
-        this.idAcabado = idAcabado;
-        this.idUnidad = idUnidad;
-        this.codigo = codigo;
-        this.descripcion = descripcion;
-        this.rutaImagen = rutaImagen;
-    }
-
-    public int getIdComponente() {
-        return idComponente;
-    }
-
-    public void setIdComponente(int idComponente) {
-        this.idComponente = idComponente;
-    }
-
-    public int getIdAcabado() {
-        return idAcabado;
-    }
-
-    public void setIdAcabado(int idAcabado) {
-        this.idAcabado = idAcabado;
-    }
-
-    public int getIdUnidad() {
-        return idUnidad;
-    }
-
-    public void setIdUnidad(int idUnidad) {
-        this.idUnidad = idUnidad;
+    public void setIdPerfil(int idPerfil) {
+        this.idPerfil = idPerfil;
     }
 
     public String getCodigo() {
@@ -73,11 +43,13 @@ public class Componente {
         this.descripcion = descripcion;
     }
 
-    public String getRutaImagen() {
-        return rutaImagen;
+    public DefaultTableModel getModelo() {
+        return modelo;
     }
 
-    public void setRutaImagen(String rutaImagen) {
-        this.rutaImagen = rutaImagen;
+    public void setModelo(DefaultTableModel modelo) {
+        this.modelo = modelo;
     }
+
+    
 }

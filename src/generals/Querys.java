@@ -28,9 +28,9 @@ public class Querys {
             ResultSet result = preparedStatement.executeQuery();
 
             list.add(Contans.SELECTING);
-
+            
             while (result.next()) {
-                list.add(result.getInt(0) + "|" + result.getString(1));
+                list.add(result.getInt(1) + "|" + result.getString(2));
             }
 
         } catch (SQLException sqle) {

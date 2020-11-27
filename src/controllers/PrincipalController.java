@@ -9,7 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import views.VComponente;
+import views.VSubComponente;
 import views.VPrincipal;
 
 /**
@@ -29,9 +29,9 @@ public class PrincipalController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if (e.getSource() == this.viewPrincipal.itemComponente) {
-            VComponente viewComponente = null;
+            VSubComponente viewComponente = null;
             try {
-                viewComponente = new VComponente();
+                viewComponente = new VSubComponente();
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(PrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }

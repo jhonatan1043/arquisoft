@@ -5,7 +5,7 @@
  */
 package views;
 
-import controllers.PerfilComponenteController;
+import controllers.ComponenteController;
 import generals.ValidForm;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -147,17 +147,17 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIniciarActionPerformed
-        VPerfilComponente viewPerfil = new VPerfilComponente();
-        PerfilComponenteController perfilComponenteCont =  new PerfilComponenteController(viewPerfil);
+        VComponente viewPerfil = new VComponente();
+        ComponenteController perfilComponenteCont =  new ComponenteController(viewPerfil);
         this.Desktop.add(viewPerfil);
         ValidForm.centeForm(viewPerfil, Desktop);
         viewPerfil.show();
     }//GEN-LAST:event_itemIniciarActionPerformed
 
     private void itemComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemComponenteActionPerformed
-        VComponente viewComponente = null;
+        VSubComponente viewComponente = null;
         try {
-            viewComponente = new VComponente();
+            viewComponente = new VSubComponente();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(VPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }

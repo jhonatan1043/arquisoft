@@ -6,16 +6,16 @@
 package interfaces;
 
 import java.util.List;
-import models.PerfilComponente;
+import models.Componente;
 
 /**
  *
  * @author Programador 1
  */
 public interface IPerfilComponente {
-    public boolean save(PerfilComponente perfilComponente);
-    public boolean update(PerfilComponente perfilComponente);
-    public boolean delete(PerfilComponente perfilComponente);
-    public List<PerfilComponente> listar();
-    public PerfilComponente getPerfilComponente(int idPerfil);
+    public boolean save(Componente perfilComponente);
+    public boolean update(Componente perfilComponente);
+    public boolean delete(Componente perfilComponente);
+    public List<Componente> listar();
+    public Componente getPerfilComponente(int idPerfil);
 }

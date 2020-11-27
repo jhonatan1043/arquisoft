@@ -7,7 +7,7 @@ package entity;
 
 import interfaces.IPerfilComponente;
 import java.util.List;
-import models.PerfilComponente;
+import models.Componente;
 
 /**
  *
@@ -16,27 +16,27 @@ import models.PerfilComponente;
 public class EPerfilComponente implements IPerfilComponente {
 
     @Override
-    public boolean save(PerfilComponente perfilComponente) {
+    public boolean save(Componente perfilComponente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(PerfilComponente perfilComponente) {
+    public boolean update(Componente perfilComponente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean delete(PerfilComponente perfilComponente) {
+    public boolean delete(Componente perfilComponente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<PerfilComponente> listar() {
+    public List<Componente> listar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public PerfilComponente getPerfilComponente(int idPerfil) {
+    public Componente getPerfilComponente(int idPerfil) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
