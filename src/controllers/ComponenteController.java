@@ -64,7 +64,7 @@ public class ComponenteController implements ActionListener {
         if (e.getSource() == this.viewPerfilComp.btnRemover) {
             this.setRowsRemove();
         }
-        
+
         if (e.getSource() == this.viewPerfilComp.comboSubComponente) {
             if (viewPerfilComp.comboSubComponente.getSelectedIndex() != 0) {
                 String codigo = this.viewPerfilComp.comboSubComponente.getSelectedItem().toString().substring(2, 12);
@@ -93,17 +93,18 @@ public class ComponenteController implements ActionListener {
         int area = (int) viewPerfilComp.txtLongitud.getValue();
         int incremento = (int) viewPerfilComp.txtIncremento.getValue();
 
-        fila[0] = 0;
+        fila[0] = this.viewPerfilComp.comboSubComponente.getSelectedItem().toString().split("0")[0];
         fila[1] = viewPerfilComp.txtCodigoSubComp.getText();
-        fila[2] = viewPerfilComp.comboSubComponente.getSelectedItem();
+        fila[2] = viewPerfilComp.comboSubComponente.getSelectedItem().toString().substring(13);
         fila[3] = viewPerfilComp.txtCantidad.getValue();
         fila[4] = logitud;
         fila[5] = anchura;
         fila[6] = altura;
         fila[7] = area;
         fila[8] = incremento;
-        fila[8] = this.setCalcularMedida(tipoCategoria, logitud, anchura, altura, area, incremento);
+        fila[9] = this.setCalcularMedida(tipoCategoria, logitud, anchura, altura, area, incremento);
         modelo.addRow(fila);
+        controllersClear();
     }
 
     public void setRowsRemove() {
@@ -155,6 +156,17 @@ public class ComponenteController implements ActionListener {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(ComponenteController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void controllersClear() {
+        this.viewPerfilComp.txtCodigoSubComp.setText("");
+        this.viewPerfilComp.comboSubComponente.setSelectedIndex(0);
+        this.viewPerfilComp.txtIncremento.setValue(0);
+        this.viewPerfilComp.txtCantidad.setValue(0);
+        this.viewPerfilComp.txtAltura.setValue(0);
+        this.viewPerfilComp.txtAnchura.setValue(0);
+        this.viewPerfilComp.txtLongitud.setValue(0);
+        this.viewPerfilComp.txtArea.setValue(0);
     }
 
 }
