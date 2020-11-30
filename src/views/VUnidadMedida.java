@@ -23,7 +23,7 @@ public class VUnidadMedida extends javax.swing.JInternalFrame {
     }
 
     public void start() {
-        ValidControlsSystem.disableControls(this);
+        ValidControlsSystem.disableControls(this.jLayeredPane1);
         ValidButtonSystem.disableButton(pnlButton);
         this.btnNew.setEnabled(true);
     }
@@ -211,14 +211,14 @@ public class VUnidadMedida extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        ValidControlsSystem.enabledControls(this);
+        ValidControlsSystem.enabledControls(this.jLayeredPane1);
         ValidButtonSystem.disableButton(pnlButton);
         this.btnSave.setEnabled(true);
         this.btnCancel.setEnabled(true);
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        ValidControlsSystem.disableControls(this);
+        ValidControlsSystem.disableControls(this.jLayeredPane1);
         ValidButtonSystem.disableButton(pnlButton);
         this.btnNew.setEnabled(true);
     }//GEN-LAST:event_btnCancelActionPerformed
