@@ -5,6 +5,7 @@
  */
 package generals;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
@@ -29,7 +30,9 @@ public class ValidControlsSystem {
                 disableControls(((JPanel) form.getComponent(i)));
             } else if (form.getComponent(i) instanceof JLayeredPane) {
                 disableControls(((JLayeredPane) form.getComponent(i)));
-            }
+            } else if (form.getComponent(i) instanceof JButton) {
+               ((JButton) form.getComponent(i)).setEnabled(false);
+            }   
         }
     }
 
@@ -46,6 +49,8 @@ public class ValidControlsSystem {
                 disableControls(((JPanel) form.getComponent(i)));
             } else if (form.getComponent(i) instanceof JLayeredPane) {
                 disableControls(((JLayeredPane) form.getComponent(i)));
+            } else if (form.getComponent(i) instanceof JButton) {
+               ((JButton) form.getComponent(i)).setEnabled(false);
             }
         }
     }
@@ -62,6 +67,8 @@ public class ValidControlsSystem {
                 enabledControls(((JPanel) form.getComponent(i)));
             } else if (form.getComponent(i) instanceof JLayeredPane) {
                 enabledControls(((JLayeredPane) form.getComponent(i)));
+            } else if (form.getComponent(i) instanceof JButton) {
+               ((JButton) form.getComponent(i)).setEnabled(true);
             }
         }
     }
@@ -78,6 +85,8 @@ public class ValidControlsSystem {
                 enabledControls(((JPanel) form.getComponent(i)));
             } else if (form.getComponent(i) instanceof JLayeredPane) {
                 enabledControls(((JLayeredPane) form.getComponent(i)));
+            } else if (form.getComponent(i) instanceof JButton) {
+               ((JButton) form.getComponent(i)).setEnabled(true);
             }
         }
     }

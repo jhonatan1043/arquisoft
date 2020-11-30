@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author Programador 1
@@ -28,9 +27,28 @@ public class Querys {
             ResultSet result = preparedStatement.executeQuery();
 
             list.add(Contans.SELECTING);
-            
+
             while (result.next()) {
                 list.add(result.getInt(1) + "|" + result.getString(2));
+            }
+
+        } catch (SQLException sqle) {
+            System.out.println("Error en la ejecución:"
+                    + sqle.getErrorCode() + " " + sqle.getMessage());
+        }
+        return list;
+
+    }
+
+    public ArrayList<String> queryComboSubComponenteReturn(String sqlConsult) throws ClassNotFoundException {
+        ArrayList<String> list = new ArrayList<>();
+        try (PreparedStatement preparedStatement = cnx.getConnection().prepareStatement(sqlConsult)) {
+            ResultSet result = preparedStatement.executeQuery();
+
+            list.add(Contans.SELECTING);
+
+            while (result.next()) {
+                list.add(result.getInt(1) + "|" + result.getString(2) + "|" + result.getString(3));
             }
 
         } catch (SQLException sqle) {
