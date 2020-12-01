@@ -81,7 +81,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Opciones");
 
-        itemComponente.setText("Componentes");
+        itemComponente.setText("Subcomponentes");
         itemComponente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemComponenteActionPerformed(evt);
@@ -120,7 +120,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
         jMenu4.setText("Proyecto");
 
-        itemIniciar.setText("Iniciar");
+        itemIniciar.setText("Componentes");
         itemIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 itemIniciarActionPerformed(evt);
@@ -147,24 +147,12 @@ public class VPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itemIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIniciarActionPerformed
-        VComponente viewPerfil = new VComponente();
-        ComponenteController perfilComponenteCont =  new ComponenteController(viewPerfil);
-        this.Desktop.add(viewPerfil);
-        ValidForm.centeForm(viewPerfil, Desktop);
-        viewPerfil.show();
-    }//GEN-LAST:event_itemIniciarActionPerformed
-
-    private void itemComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemComponenteActionPerformed
-        VSubComponente viewComponente = null;
-        try {
-            viewComponente = new VSubComponente();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        VComponente viewComponente = new VComponente();
+        ComponenteController perfilComponenteCont =  new ComponenteController(viewComponente);
         this.Desktop.add(viewComponente);
         ValidForm.centeForm(viewComponente, Desktop);
         viewComponente.show();
-    }//GEN-LAST:event_itemComponenteActionPerformed
+    }//GEN-LAST:event_itemIniciarActionPerformed
 
     private void itemAcabadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAcabadoActionPerformed
         VAcabado viewAcabado = new VAcabado();
@@ -186,6 +174,13 @@ public class VPrincipal extends javax.swing.JFrame {
         ValidForm.centeForm(viewCorte, Desktop);
         viewCorte.show();
     }//GEN-LAST:event_itemCorteActionPerformed
+
+    private void itemComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemComponenteActionPerformed
+        VSubComponente viewSubcomponente = new VSubComponente();
+        this.Desktop.add(viewSubcomponente);
+        ValidForm.centeForm(viewSubcomponente, Desktop);
+        viewSubcomponente.show();
+    }//GEN-LAST:event_itemComponenteActionPerformed
 
     /**
      * @param args the command line arguments
