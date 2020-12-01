@@ -37,7 +37,6 @@ public class ValidControlsSystem {
     }
 
     public static void disableControls(javax.swing.JLayeredPane form) {
-        System.out.println("JLayeredPane");
         for (int i = 0; i < form.getComponentCount(); i++) {
             if (form.getComponent(i) instanceof JTextField) {
                 ((JTextField) form.getComponent(i)).setEnabled(false);

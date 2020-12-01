@@ -5,6 +5,7 @@
  */
 package entity;
 
+import generals.Conexion;
 import generals.Contans;
 import generals.Querys;
 import java.sql.ResultSet;
@@ -15,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.SubComponente;
 import interfaces.ISubComponente;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 
 /**
  *
@@ -25,13 +28,44 @@ public class ESubComponente implements ISubComponente {
     Querys query = new Querys();
 
     @Override
-    public boolean save(SubComponente componente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean save(SubComponente subcomponente) {
+        boolean result = false;
+        Conexion cnx = new Conexion();
+        try {   
+            try (PreparedStatement psmt = cnx.getConnection().prepareStatement(Contans.QUERY_INSERT_SUBCOMPONENTES, Statement.RETURN_GENERATED_KEYS)) {
+                psmt.setInt(1, subcomponente.getIdAcabado());
+                psmt.setInt(2, subcomponente.getIdUnidad());
+                psmt.setString(3, subcomponente.getCodigo());
+                psmt.setString(4, subcomponente.getDescripcion());
+                psmt.execute();
+                cnx.getConnection().close(); 
+                result = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ESubComponente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
-    public boolean update(SubComponente componente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean update(SubComponente subcomponente) {
+            boolean result = false;
+        Conexion cnx = new Conexion();
+        try {   
+            try (PreparedStatement psmt = cnx.getConnection().prepareStatement(Contans.QUERY_UPDATE_SUBCOMPONENTES)) {
+                psmt.setInt(1, subcomponente.getIdAcabado());
+                psmt.setInt(2, subcomponente.getIdUnidad());
+                psmt.setString(3, subcomponente.getCodigo());
+                psmt.setString(4, subcomponente.getDescripcion());
+                psmt.setInt(5, subcomponente.getIdSubcomponente());
+                psmt.execute();
+                result = true;
+                cnx.getConnection().close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ESubComponente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
@@ -46,7 +80,7 @@ public class ESubComponente implements ISubComponente {
         try {
             while (result.next()) {
                 SubComponente componente = new SubComponente();
-                componente.setIdComponente(result.getInt(0));
+                componente.setIdSubcomponente(result.getInt(0));
                 componente.setCodigo(result.getString(1));
                 componente.setDescripcion(result.getString(2));
                 listComponente.add(componente);

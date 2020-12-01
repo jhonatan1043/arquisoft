@@ -11,7 +11,7 @@ package models;
  */
 public class SubComponente {
 
-    private int idComponente;
+    private int idSubcomponente;
     private int idAcabado;
     private int idUnidad;
     private String codigo;
@@ -21,11 +21,11 @@ public class SubComponente {
     public SubComponente() {
     }
 
-    public SubComponente(int idComponente,
+    public SubComponente(int idSubcomponente,
             int idAcabado,
             int idUnidad,
             String codigo, String descripcion, String rutaImagen) {
-        this.idComponente = idComponente;
+        this.idSubcomponente = idSubcomponente;
         this.idAcabado = idAcabado;
         this.idUnidad = idUnidad;
         this.codigo = codigo;
@@ -33,12 +33,12 @@ public class SubComponente {
         this.rutaImagen = rutaImagen;
     }
 
-    public int getIdComponente() {
-        return idComponente;
+    public int getIdSubcomponente() {
+        return idSubcomponente;
     }
 
-    public void setIdComponente(int idComponente) {
-        this.idComponente = idComponente;
+    public void setIdSubcomponente(int idSubcomponente) {
+        this.idSubcomponente = idSubcomponente;
     }
 
     public int getIdAcabado() {

@@ -19,7 +19,15 @@ public class Contans {
     
     public static String QUERY_CATEGORIAS = "SELECT Id_categoria,Descripcion,Tipo_Formula FROM arquitectdb.categorias;";
     
+     // querys subComponentes
      public static String QUERY_SUBCOMPONENTES = "SELECT Id_subcomponente, Codigo, Descripcion FROM arquitectdb.subcomponentes;";
+     
+     public static String QUERY_INSERT_SUBCOMPONENTES = "INSERT subcomponentes (Id_Acabado,Id_Unidad,Codigo,Descripcion) VALUES (?,?,?,?)";
+     
+     public static String QUERY_UPDATE_SUBCOMPONENTES = "UPDATE subcomponentes SET Id_Acabado = ?,"
+                                                                                 + "Id_Unidad = ?,"
+                                                                                 + "Codigo = ?,"
+                                                                                 + "Descripcion = ? WHERE Id_Subcomponente = ?;";
     
 
 // static of system 

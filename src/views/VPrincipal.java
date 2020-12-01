@@ -6,11 +6,10 @@
 package views;
 
 import controllers.ComponenteController;
+import controllers.SubComponenteController;
 import generals.ValidForm;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -148,7 +147,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void itemIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIniciarActionPerformed
         VComponente viewComponente = new VComponente();
-        ComponenteController perfilComponenteCont =  new ComponenteController(viewComponente);
+        ComponenteController perfilComponenteCont = new ComponenteController(viewComponente);
         this.Desktop.add(viewComponente);
         ValidForm.centeForm(viewComponente, Desktop);
         viewComponente.show();
@@ -177,6 +176,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void itemComponenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemComponenteActionPerformed
         VSubComponente viewSubcomponente = new VSubComponente();
+        SubComponenteController subComponenteCont = new SubComponenteController(viewSubcomponente);
         this.Desktop.add(viewSubcomponente);
         ValidForm.centeForm(viewSubcomponente, Desktop);
         viewSubcomponente.show();
