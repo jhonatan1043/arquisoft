@@ -32,13 +32,14 @@ public class ESubComponente implements ISubComponente {
         boolean result = false;
         Conexion cnx = new Conexion();
         try {   
-            try (PreparedStatement psmt = cnx.getConnection().prepareStatement(Contans.QUERY_INSERT_SUBCOMPONENTES, Statement.RETURN_GENERATED_KEYS)) {
+            try (PreparedStatement psmt = cnx.getConnection().prepareStatement(Contans.QUERY_INSERT_SUBCOMPONENTES)) {
                 psmt.setInt(1, subcomponente.getIdAcabado());
                 psmt.setInt(2, subcomponente.getIdUnidad());
                 psmt.setString(3, subcomponente.getCodigo());
                 psmt.setString(4, subcomponente.getDescripcion());
                 psmt.execute();
                 cnx.getConnection().close(); 
+                psmt.close();
                 result = true;
             }
         } catch (SQLException ex) {

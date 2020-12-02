@@ -123,7 +123,6 @@ public class SubComponenteController implements ActionListener {
     }
 
     private void controlsClean() {
-        eSubcomponente = null;
         viewSubcomponente.txtCodigo.setText("");
         viewSubcomponente.txtDescripcion.setText("");
         viewSubcomponente.cbAcabado.setSelectedIndex(0);
