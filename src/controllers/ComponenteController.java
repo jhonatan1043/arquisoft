@@ -88,9 +88,9 @@ public class ComponenteController implements ActionListener {
         Object[] fila = new Object[10];
         int tipoCategoria = (int) viewPerfilComp.comboCategoria.getSelectedIndex();
         int logitud = (int) viewPerfilComp.txtLongitud.getValue();
-        int anchura = (int) viewPerfilComp.txtLongitud.getValue();
-        int altura = (int) viewPerfilComp.txtLongitud.getValue();
-        int area = (int) viewPerfilComp.txtLongitud.getValue();
+        int anchura = (int) viewPerfilComp.txtAnchura.getValue();
+        int altura = (int) viewPerfilComp.txtAltura.getValue();
+        int area = (int) viewPerfilComp.txtArea.getValue();
         int incremento = (int) viewPerfilComp.txtIncremento.getValue();
 
         fila[0] = this.viewPerfilComp.comboSubComponente.getSelectedItem().toString().split("0")[0];
