@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package dao;
 
 import generals.Conexion;
 import generals.Contans;
@@ -23,7 +23,7 @@ import java.sql.Statement;
  *
  * @author Programador 1
  */
-public class ESubComponente implements ISubComponente {
+public class DaoSubComponente implements ISubComponente {
 
     Querys query = new Querys();
 
@@ -43,7 +43,7 @@ public class ESubComponente implements ISubComponente {
                 result = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ESubComponente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoSubComponente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -64,7 +64,7 @@ public class ESubComponente implements ISubComponente {
                 cnx.getConnection().close();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ESubComponente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoSubComponente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -87,7 +87,7 @@ public class ESubComponente implements ISubComponente {
                 listComponente.add(componente);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ESubComponente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DaoSubComponente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return listComponente;
     }

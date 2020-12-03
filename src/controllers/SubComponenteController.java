@@ -6,7 +6,7 @@
 package controllers;
 
 import views.VSubComponente;
-import entity.ESubComponente;
+import dao.DaoSubComponente;
 import generals.Combos;
 import generals.Contans;
 import generals.ValidButtonSystem;
@@ -25,7 +25,7 @@ import models.SubComponente;
 public class SubComponenteController implements ActionListener {
 
     VSubComponente viewSubcomponente;
-    ESubComponente eSubcomponente = new ESubComponente();
+    DaoSubComponente eSubcomponente = new DaoSubComponente();
     SubComponente subcomponente = new SubComponente();
 
     public SubComponenteController(VSubComponente viewSubcomponente) {
