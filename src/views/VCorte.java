@@ -5,10 +5,6 @@
  */
 
 package views;
-
-import generals.ValidButtonSystem;
-import generals.ValidControlsSystem;
-
 /**
  *
  * @author Programador 1
@@ -18,14 +14,8 @@ public class VCorte extends javax.swing.JInternalFrame {
     /** Creates new form VCorte */
     public VCorte() {
         initComponents();
-        start();
     }
     
-    public void start() {
-        ValidControlsSystem.disableControls(this.jLayeredPane1);
-        ValidButtonSystem.disableButton(pnlButton);
-        this.btnNew.setEnabled(true);
-    }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -229,13 +219,13 @@ public class VCorte extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLayeredPane jLayeredPane1;
+    public javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel pnlButton;
-    private javax.swing.JSpinner spCorteDerecho;
-    private javax.swing.JSpinner spCorteIzquierdo;
-    private javax.swing.JTextField txtConvencion;
+    public javax.swing.JSpinner spCorteDerecho;
+    public javax.swing.JSpinner spCorteIzquierdo;
+    public javax.swing.JTextField txtConvencion;
     // End of variables declaration//GEN-END:variables
 
 }

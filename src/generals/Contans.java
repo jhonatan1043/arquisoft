@@ -22,12 +22,16 @@ public class Contans {
      // querys subComponentes
      public static String QUERY_SUBCOMPONENTES = "SELECT Id_subcomponente, Codigo, Descripcion FROM arquitectdb.subcomponentes;";
      
-     public static String QUERY_INSERT_SUBCOMPONENTES = "INSERT subcomponentes (Id_Acabado,Id_Unidad,Codigo,Descripcion) VALUES (?,?,?,?)";
+     public static String QUERY_INSERT_SUBCOMPONENTES = "INSERT subcomponentes (Id_Acabado,Id_Unidad,Codigo,Descripcion) VALUES (?,?,?,?);";
      
      public static String QUERY_UPDATE_SUBCOMPONENTES = "UPDATE subcomponentes SET Id_Acabado = ?,"
                                                                                  + "Id_Unidad = ?,"
                                                                                  + "Codigo = ?,"
                                                                                  + "Descripcion = ? WHERE Id_Subcomponente = ?;";
+     
+     public static String QUERY_INSERT_UNIDAD_MEDIDA = "INSERT unidades_medidas (Descripcion,Convencion)VALUES(?,?);";
+     
+     public static String QUERY_INSERT_CORTES = "INSERT cortes (Descripcion,Corte_Derecho,Corte_Izquierdo)VALUES(?,?,?);";
     
 
 // static of system 

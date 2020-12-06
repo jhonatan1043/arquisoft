@@ -6,7 +6,9 @@
 package views;
 
 import controllers.ComponenteController;
+import controllers.CorteController;
 import controllers.SubComponenteController;
+import controllers.UnidadMedidaController;
 import generals.ValidForm;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -162,6 +164,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void itemUnidadMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemUnidadMedidaActionPerformed
         VUnidadMedida viewUnidadMedida = new VUnidadMedida();
+        UnidadMedidaController unidadMedidaC =  new UnidadMedidaController(viewUnidadMedida);
         this.Desktop.add(viewUnidadMedida);
         ValidForm.centeForm(viewUnidadMedida, Desktop);
         viewUnidadMedida.show();
@@ -169,6 +172,7 @@ public class VPrincipal extends javax.swing.JFrame {
 
     private void itemCorteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCorteActionPerformed
         VCorte viewCorte = new VCorte();
+        CorteController corte = new CorteController(viewCorte);
         this.Desktop.add(viewCorte);
         ValidForm.centeForm(viewCorte, Desktop);
         viewCorte.show();
